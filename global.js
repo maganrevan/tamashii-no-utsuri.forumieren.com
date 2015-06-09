@@ -4,7 +4,7 @@ $(document).ready(function(){
             if($('#counter').length === 0){
                 $('<div><span id="counter"></span>&nbsp;<span id="words"></span></div>').appendTo('.sceditor-container');
             }
-			if(!$('.sceditor-container').children('textarea').val(){
+			if(!$('.sceditor-container').children('textarea').val()){
 				var iCounter === 0;
 			}
 			else{
