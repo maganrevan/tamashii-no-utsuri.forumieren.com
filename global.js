@@ -1,7 +1,7 @@
 $(document).ready(function () {
     setTimeout(function () {
         if ($('#counter').length === 0) {
-            $('<div><span id="counter"></span>&nbsp;<span id="words"></span></div>').appendTo('.sceditor-container');
+            $('<div><span id="counter">0</span>&nbsp;<span id="words">W&ouml;rter</span></div>').appendTo('.sceditor-container');
         }
 
         $('.sceditor-container').children('textarea').bind('keyup', function () {
