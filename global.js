@@ -13,11 +13,11 @@ $(document).ready(function () {
         /*Beginn Postsicherung*/
         if ($('.sceditor-container').find('textarea').length !== 0) {
             if (getCookie("post") !== '') {
-                var bConfirm = confirm("M&ouml;chten Sie den letzten Post wieder laden?");
+                var bConfirm = confirm("Möchten Sie den letzten Post wieder laden?");
             }
 
             $('.mainoption, .liteoption').bind('click', function () {
-                fctDeleteCookie();
+                fctDeleteCookie("post");
             });
 
             if (bConfirm === true) {
