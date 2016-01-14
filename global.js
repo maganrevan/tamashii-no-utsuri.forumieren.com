@@ -1,6 +1,6 @@
 $(document).ready(function () {
     setTimeout(function () {
-        /*Beginn Wörterzähler*/
+        /*Beginn W&ouml;rterz&auml;hler*/
         if ($('#counter').length === 0) {
             $('<div><span id="counter">0</span>&nbsp;<span id="words">W&ouml;rter</span></div>').appendTo('.sceditor-container');
         }
@@ -8,16 +8,16 @@ $(document).ready(function () {
         $('.sceditor-container').children('textarea').bind('keyup', function () {
             $(this).fctCountWords();
         });
-        /*Ende Wörterzähler*/
+        /*Ende W&ouml;rterz&auml;hler*/
 
         /*Beginn Postsicherung*/
         if ($('.sceditor-container').find('textarea').length !== 0) {
             if (getCookie("post") !== '') {
                 console.log('bin drinnen');
-                var bConfirm = confirm("Möchten Sie den letzten Post wieder laden?");
+                var bConfirm = confirm("M&ouml;chten Sie den letzten Post wieder laden?");
             }
 
-            $('.mainoptoin, .liteoption').bind('click', function () {
+            $('.mainoption, .liteoption').bind('click', function () {
                 fctDeleteCookie();
             });
 
