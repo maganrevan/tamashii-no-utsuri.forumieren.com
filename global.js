@@ -13,7 +13,6 @@ $(document).ready(function () {
         /*Beginn Postsicherung*/
         if ($('.sceditor-container').find('textarea').length !== 0) {
             if (getCookie("post") !== '') {
-                console.log('bin drinnen');
                 var bConfirm = confirm("M&ouml;chten Sie den letzten Post wieder laden?");
             }
 
