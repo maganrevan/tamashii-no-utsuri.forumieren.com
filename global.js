@@ -12,23 +12,23 @@ $(document).ready(function () {
 
         /*Beginn Postsicherung*/
         if ($('.sceditor-container').find('textarea').length !== 0) {
-            if (getCookie("post") !== '') {
+            if (localStorage.getItem("post") !== '' && localStorage.getItem("post") !== null) {
                 var bConfirm = confirm("Möchten Sie den letzten Post wieder laden?");
             }
 
             $('.mainoption, .liteoption').bind('click', function () {
-                fctDeleteCookie("post");
+                fctDeletePost("post");
             });
 
             if (bConfirm === true) {
-                $('.sceditor-container').children('textarea').val(getCookie('post').replace(/<br[^>]*>/g, "\n"));
-                fctDeleteCookie("post");
+                $('.sceditor-container').children('textarea').val(localStorage.getItem('post').replace(/<br[^>]*>/g, "\n"));
+                fctDeletePost("post");
             } else {
-                fctDeleteCookie("post");
+                fctDeletePost("post");
             }
 
             $('.sceditor-container').children('textarea').bind('keyup', function () {
-                document.cookie = "post=" + $(this).val().replace(/\n/g, '<br/>') + ";";
+                localStorage.setItem("post",$(this).val().replace(/\n/g, '<br/>'));
             });
         }
         /*Ende Postsicherung*/
@@ -39,8 +39,8 @@ $(document).ready(function () {
 
     }, 1500);
 
-    fctDeleteCookie = function (name) {
-        document.cookie = name + "=;";
+    fctDeletePost = function (name) {
+        localStorage.setItem(name,'');
     };
 
     $.fn.fctCountWords = function () {
@@ -64,17 +64,4 @@ $(document).ready(function () {
             $('#words').html('W&ouml;rter');
         }
     };
-
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) === ' ')
-                c = c.substring(1);
-            if (c.indexOf(name) === 0)
-                return c.substring(name.length, c.length);
-        }
-        return "";
-    }
 });
